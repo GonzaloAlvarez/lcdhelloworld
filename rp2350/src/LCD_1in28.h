@@ -12,8 +12,8 @@
 *
 ******************************************************************************/
 #ifndef __LCD_1IN28_H
-#define __LCD_1IN28_H	
-	
+#define __LCD_1IN28_H
+
 #include "DEV_Config.h"
 #include <stdint.h>
 

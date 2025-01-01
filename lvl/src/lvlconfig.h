@@ -24,6 +24,7 @@
 
 #include "DEV_Config.h"
 #include "LCD_1in28.h"
+#include "CST816S.h"
 #include <lvgl.h>
 
 #define DISP_HOR_RES 240

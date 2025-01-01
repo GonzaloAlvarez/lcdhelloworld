@@ -1,5 +1,5 @@
 /**
- * LVL Configuration File
+ * Main Interface Configuration file
  */
 
 #include "lvlconfig.h"
@@ -7,10 +7,9 @@
 static struct repeating_timer lvgl_timer;
 static lv_display_t *display;
 static lv_draw_buf_t *buffer0;
-static uint8_t buffer1[DISP_HOR_RES * DISP_VER_RES / 2];
+static lv_draw_buf_t *buffer1;
 
-bool repeating_lvgl_timer_callback(struct repeating_timer *t)
-{
+bool repeating_lvgl_timer_callback(struct repeating_timer *t) {
     lv_tick_inc(10);
     return true;
 }
@@ -38,7 +37,8 @@ void LVGL_Init(void) {
 
     display = lv_display_create(DISP_HOR_RES, DISP_VER_RES);
     buffer0 = lv_draw_buf_create(DISP_HOR_RES, DISP_VER_RES, lv_display_get_color_format(display), 0);
-    lv_display_set_buffers(display, buffer0, NULL, DISP_HOR_RES * DISP_VER_RES / 2, LV_DISPLAY_RENDER_MODE_PARTIAL);
+    buffer1 = lv_draw_buf_create(DISP_HOR_RES, DISP_VER_RES, lv_display_get_color_format(display), 0);
+    lv_display_set_buffers(display, buffer0, buffer1, DISP_HOR_RES * DISP_VER_RES / 2, LV_DISPLAY_RENDER_MODE_PARTIAL);
     lv_display_set_flush_cb(display, disp_flush_cb);
 
     dma_channel_set_irq0_enabled(dma_tx, true);
