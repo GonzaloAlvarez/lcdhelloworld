@@ -6,7 +6,9 @@
 
 <h4 align="center">A minimal example of a hello world using the Waveshare RP2530 with LCD 1.28in screen device</h4>
 
-![Demo Screen](asset/screenshot.png)
+<p align="center">
+  <img src="https://raw.githubusercontent.com/GonzaloAlvarez/lcdhelloworld/master/assets/screenshot.png"/>
+</p>
 
 # Why
 
